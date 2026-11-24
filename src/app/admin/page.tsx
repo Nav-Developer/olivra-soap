@@ -3,9 +3,9 @@ import { createClient } from "@/lib/supabase/server";
 
 export default async function AdminDashboard() {
   const supabase = await createClient();
-  const [{ count: menuCount }, { count: enquiryCount }, { data: latest }] =
+  const [{ count: productCount }, { count: enquiryCount }, { data: latest }] =
     await Promise.all([
-      supabase.from("menu_items").select("*", { count: "exact", head: true }),
+      supabase.from("products").select("*", { count: "exact", head: true }),
       supabase.from("enquiries").select("*", { count: "exact", head: true }),
       supabase
         .from("enquiries")
@@ -23,13 +23,13 @@ export default async function AdminDashboard() {
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         <Link
-          href="/admin/menu"
+          href="/admin/product"
           className="rounded-[2rem] bg-white p-6 shadow-[0_14px_32px_-16px_rgba(122,23,18,0.45)]"
         >
           <p className="font-display text-5xl font-semibold">
-            {menuCount ?? 0}
+            {productCount ?? 0}
           </p>
-          <p className="mt-1 font-bold">Menu items</p>
+          <p className="mt-1 font-bold">Products</p>
           <p className="text-sm text-ink/60">Add, edit or hide items →</p>
         </Link>
         <Link

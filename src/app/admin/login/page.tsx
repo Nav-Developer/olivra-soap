@@ -25,7 +25,7 @@ export default function AdminLoginPage() {
       setError(error.message);
       return;
     }
-    router.push("/admin");
+    router.push("/admin/product");
     router.refresh();
   }
 
