@@ -371,7 +371,7 @@ export default function HeroCake() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-block rounded-full bg-white/15 px-5 py-2 text-sm font-semibold text-white ring-1 ring-white/40 backdrop-blur"
             >
-              WakeCup Cafe · Theni
+              Olivra · Theni
             </motion.span>
 
             <h1 className="font-display mt-6 text-5xl font-semibold leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl">

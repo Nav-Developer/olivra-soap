@@ -1,12 +1,10 @@
-import HeroCake from "@/components/sections/HeroCake";
-import HeroMotion from "@/components/sections/HeroMotion";
+import HeroSoap from "@/components/sections/HeroSoap";
 import StoryScroll from "@/components/sections/StoryScroll";
 
 export default function Home() {
   return (
     <>
-      {/* <HeroMotion /> */}
-      <HeroCake />
+      <HeroSoap />
       <StoryScroll />
     </>
   );

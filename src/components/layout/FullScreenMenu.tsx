@@ -52,7 +52,7 @@ export default function FullScreenMenu() {
               >
                 <Image
                   src={assets.images.logo}
-                  alt="WakeCup Cafe"
+                  alt="Olivra"
                   fill
                   className="rounded-full object-cover"
                 />

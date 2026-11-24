@@ -21,24 +21,25 @@ import CloseIcon from "@mui/icons-material/Close";
 import assets from "@/assets";
 
 const LOGO_SRC = assets.images.logo;
-const INK = "#2A1410";
-const RED = "#C8281E";
-const PAPER = "#FFFAF2";
+const INK = "#12260A";
+const GREEN = "#1F4A10";
+const GREEN_DARK = "#143308";
+const PAPER = "#F4F8EA";
 
 const links = [
   { label: "Home", href: "/" },
-  { label: "Menu", href: "/menu" },
+  { label: "Shop", href: "/shop" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 const orderSx = {
-  bgcolor: "primary.main",
+  bgcolor: GREEN,
   color: "#fff",
-  boxShadow: "0 8px 18px -8px rgba(200,40,30,0.7)",
+  boxShadow: "0 8px 18px -8px rgba(31,74,16,0.7)",
   transition: "all .15s",
   "&:hover": {
-    bgcolor: "primary.dark",
+    bgcolor: GREEN_DARK,
     transform: "translateY(-2px)",
   },
 };
@@ -53,13 +54,13 @@ function Logo({ size }: { size: number }) {
         borderRadius: "50%",
         overflow: "hidden",
         bgcolor: "#fff",
-        boxShadow: `0 0 0 3px ${RED}, 0 8px 16px -6px rgba(42,20,16,0.4)`,
+        boxShadow: `0 0 0 3px ${GREEN}, 0 8px 16px -6px rgba(18,38,10,0.4)`,
         flexShrink: 0,
       }}
     >
       <Image
         src={LOGO_SRC}
-        alt="WakeCup"
+        alt="Olivra"
         fill
         priority
         sizes="80px"
@@ -79,10 +80,10 @@ export default function Navbar() {
         position="fixed"
         elevation={0}
         sx={{
-          bgcolor: "rgba(255,250,242,0.88)",
+          bgcolor: "rgba(244,248,234,0.88)",
           backdropFilter: "blur(14px)",
           color: INK,
-          borderBottom: "1px solid rgba(42,20,16,0.1)",
+          borderBottom: "1px solid rgba(18,38,10,0.1)",
         }}
       >
         <Toolbar
@@ -92,7 +93,7 @@ export default function Navbar() {
             gap: { md: 5 },
           }}
         >
-          <Link href="/" style={{ display: "flex" }} aria-label="WakeCup home">
+          <Link href="/" style={{ display: "flex" }} aria-label="Olivra home">
             <Logo size={56} />
           </Link>
 
@@ -114,12 +115,12 @@ export default function Navbar() {
                   disableRipple
                   sx={{
                     color: active ? "#fff" : INK,
-                    bgcolor: active ? RED : "transparent",
+                    bgcolor: active ? GREEN : "transparent",
                     fontSize: "0.95rem",
                     px: 2.5,
                     "&:hover": {
-                      bgcolor: active ? RED : "rgba(200,40,30,0.1)",
-                      color: active ? "#fff" : RED,
+                      bgcolor: active ? GREEN : "rgba(31,74,16,0.1)",
+                      color: active ? "#fff" : GREEN,
                     },
                   }}
                 >
@@ -129,11 +130,11 @@ export default function Navbar() {
             })}
             <Button
               component={Link}
-              href="/reservation"
+              href="/shop"
               variant="contained"
               sx={{ ml: 1.5, ...orderSx }}
             >
-              Pre-order
+              Shop now
             </Button>
           </Box>
 
@@ -145,7 +146,7 @@ export default function Navbar() {
               display: { xs: "inline-flex", md: "none" },
               color: INK,
               bgcolor: "#fff",
-              boxShadow: "0 4px 12px -4px rgba(42,20,16,0.35)",
+              boxShadow: "0 4px 12px -4px rgba(18,38,10,0.35)",
             }}
           >
             <MenuIcon />
@@ -214,13 +215,13 @@ export default function Navbar() {
                         fontFamily: "var(--font-bodoni), serif",
                         fontWeight: 600,
                         fontSize: "1.6rem",
-                        color: pathname === l.href ? RED : INK,
+                        color: pathname === l.href ? GREEN : INK,
                       },
                     },
                   }}
                 />
               </ListItemButton>
-              <Divider sx={{ borderColor: "rgba(42,20,16,0.12)" }} />
+              <Divider sx={{ borderColor: "rgba(18,38,10,0.12)" }} />
             </Box>
           ))}
         </List>
@@ -228,14 +229,14 @@ export default function Navbar() {
         <Box sx={{ px: 2.5, mt: 3 }}>
           <Button
             component={Link}
-            href="/reservation"
+            href="/shop"
             variant="contained"
             fullWidth
             size="large"
             onClick={() => setOpen(false)}
             sx={orderSx}
           >
-            Pre-order a cake
+            Shop soaps
           </Button>
         </Box>
       </Drawer>

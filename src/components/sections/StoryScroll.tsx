@@ -5,15 +5,15 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import cone from "@/assets/Images/leg.png";
 import { chapters } from "@/data/story";
 import PopBackground from "@/components/ui/PopBackground";
+import PlaceholderArt from "@/components/ui/PlaceholderArt";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const STEP = 3;
 
-const SOFT_SHADOW = "shadow-[0_14px_32px_-14px_rgba(122,23,18,0.4)]";
+const SOFT_SHADOW = "shadow-[0_14px_32px_-14px_rgba(20,51,8,0.4)]";
 
 export default function StoryScroll() {
   const root = useRef<HTMLElement>(null);
@@ -137,8 +137,8 @@ export default function StoryScroll() {
       {chapters.map((c, i) => {
         const flip = i % 2 === 1;
         const tall = c.aspect === "tall";
-        const hasRight = Boolean(c.image || c.points);
-        // tall photos become an arch (café window), wide ones a soft rectangle
+        const hasPhoto = Boolean(c.image || c.aspect);
+        const hasRight = hasPhoto || Boolean(c.points);
         const radius = tall
           ? "rounded-t-[999px] rounded-b-[2rem]"
           : "rounded-[2rem]";
@@ -153,7 +153,7 @@ export default function StoryScroll() {
               className="bignum font-display pointer-events-none absolute top-24 select-none font-semibold italic leading-none text-transparent"
               style={{
                 fontSize: "18rem",
-                WebkitTextStroke: "2px rgba(200,40,30,0.18)",
+                WebkitTextStroke: "2px rgba(31,74,16,0.16)",
                 [flip ? "right" : "left"]: "2rem",
               }}
             >
@@ -220,14 +220,13 @@ export default function StoryScroll() {
               )}
             </div>
 
-            {/* PHOTO */}
-            {c.image && (
+            {/* PHOTO (placeholder until you add c.image) */}
+            {hasPhoto && (
               <div
                 className={`relative z-10 mx-auto w-full ${
                   tall ? "max-w-sm" : "max-w-2xl"
                 } ${flip ? "md:order-1" : ""}`}
               >
-                {/* soft offset shape behind the photo */}
                 <div
                   aria-hidden
                   className={`absolute inset-0 translate-x-4 translate-y-4 bg-brand-yellow ${radius}`}
@@ -237,17 +236,21 @@ export default function StoryScroll() {
                     tall ? "aspect-[4/5]" : "aspect-[4/3]"
                   }`}
                 >
-                  <Image
-                    src={c.image}
-                    alt={c.title}
-                    fill
-                    sizes={
-                      tall
-                        ? "(min-width:768px) 24rem, 90vw"
-                        : "(min-width:768px) 42rem, 90vw"
-                    }
-                    className="object-cover object-center"
-                  />
+                  {c.image ? (
+                    <Image
+                      src={c.image}
+                      alt={c.title}
+                      fill
+                      sizes={
+                        tall
+                          ? "(min-width:768px) 24rem, 90vw"
+                          : "(min-width:768px) 42rem, 90vw"
+                      }
+                      className="object-cover object-center"
+                    />
+                  ) : (
+                    <PlaceholderArt label="Photo coming soon" />
+                  )}
                 </div>
 
                 <div
@@ -308,13 +311,25 @@ export default function StoryScroll() {
             />
           ))}
 
-          <div className="cone absolute top-1/2 w-12 -translate-x-1/2 -translate-y-1/2 md:w-14">
-            <Image
-              src={cone}
-              alt=""
-              sizes="90px"
-              className="h-auto w-full drop-shadow-[0_4px_4px_rgba(74,14,10,0.35)]"
-            />
+          {/* spinning leaf */}
+          <div className="cone absolute top-1/2 w-10 -translate-x-1/2 -translate-y-1/2 md:w-12">
+            <svg
+              aria-hidden
+              viewBox="0 0 120 120"
+              className="h-auto w-full text-brand-red drop-shadow-[0_4px_4px_rgba(20,51,8,0.35)]"
+              fill="none"
+            >
+              <path
+                d="M18 102 C18 52 58 20 104 18 C104 72 70 104 18 102 Z"
+                fill="currentColor"
+              />
+              <path
+                d="M22 98 L84 40"
+                stroke="#A5CF3F"
+                strokeWidth="5"
+                strokeLinecap="round"
+              />
+            </svg>
           </div>
         </div>
       </div>

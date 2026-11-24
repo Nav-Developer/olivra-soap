@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* WakeCup logo palette */
-  --brand-red: #c8281e; /* the cup red */
-  --brand-red-dark: #9c1c14;
-  --brand-red-deep: #4a0e0a;
-  --brand-yellow: #f4b83a; /* marigold, from the festive-affair photos */
-  --brand-yellow-shadow: #c78f12;
-  --ink: #2a1410; /* cocoa */
-  --cream: #fffaf2; /* warm paper (name kept so other pages don't break) */
-  --blush: #fbe0d6;
+  /* Olivra palette */
+  --brand-red: #1f4a10; /* deep leaf green (name kept so classes work) */
+  --brand-red-dark: #143308;
+  --brand-red-deep: #0f2a06;
+  --brand-yellow: #a5cf3f; /* lime from the leaf */
+  --brand-yellow-shadow: #7e9f20;
+  --ink: #12260a;
+  --cream: #f4f8ea;
+  --blush: #ddebc3;
 
   /* old names kept so other pages don't break */
-  --wine-950: #1f070b;
-  --wine-900: #2e0d12;
-  --wine-800: #4a1820;
-  --wine-700: #6a1d22;
+  --wine-950: #0b2005;
+  --wine-900: #10290a;
+  --wine-800: #143308;
+  --wine-700: #1b4210;
   --wine-600: var(--brand-red-dark);
   --gold-400: var(--brand-yellow);
-  --copper: #c98b6b;
-  --cream-200: #f6e9d6;
+  --copper: #8daf3a;
+  --cream-200: #e8f0d5;
 }
 
 @theme inline {
@@ -58,7 +58,7 @@ body {
   min-width: 0;
   border-radius: 9999px;
   background: #fff;
-  border: 1.5px solid rgba(42, 20, 16, 0.15);
+  border: 1.5px solid rgba(18, 38, 10, 0.15);
   padding: 0.875rem 1.25rem;
   font-size: 0.875rem;
   color: var(--ink);
@@ -66,5 +66,5 @@ body {
 }
 .field:focus {
   border-color: var(--brand-red);
-  box-shadow: 0 0 0 3px rgba(200, 40, 30, 0.18);
+  box-shadow: 0 0 0 3px rgba(31, 74, 16, 0.18);
 }

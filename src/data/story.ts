@@ -1,71 +1,66 @@
 import type { StaticImageData } from "next/image";
-import assets from "@/assets";
 
 export type Chapter = {
   tag: string;
   title: string;
   text: string;
   text2?: string;
-  image?: StaticImageData;
-  aspect?: "tall" | "wide";
+  image?: StaticImageData; // add real photo later
+  aspect?: "tall" | "wide"; // set this to show a photo/placeholder block
   points?: { label: string; title: string; text: string }[];
   stats?: { label: string; value: number; suffix?: string }[];
 };
 
-// Copy is based on WakeCup's own Instagram bio and channel note.
-// Images are placeholders: swap in your real photos when ready.
+// FAKE CONTENT: replace with real copy later.
 export const chapters: Chapter[] = [
   {
-    tag: "Hello, Theni",
-    title: "a little corner of comfort & good food",
-    text: "WakeCup is a friendly neighbourhood café in NRT Nagar. Come by, say hello and settle in.",
-    image: assets.images.first,
+    tag: "Hello, from Olivra",
+    title: "soap the way nature intended",
+    text: "Olivra makes handmade soaps from plant-based oils and real botanicals. Simple, gentle and good for everyday skin.",
     aspect: "wide",
   },
   {
-    tag: "Our menu",
-    title: "less is more",
-    text: "Quality always comes before quantity. That is why our menu is short and carefully curated.",
-    text2: "We would rather make a few things really well.",
-    image: assets.images.second,
+    tag: "Our soaps",
+    title: "short ingredient lists",
+    text: "If you can't pronounce it, it doesn't go in the bar. Olive oil, coconut oil, shea butter and herbs, that's about it.",
+    text2: "No parabens, no harsh sulphates, no artificial dyes.",
     aspect: "tall",
   },
   {
-    tag: "Six months of tasting",
-    title: "tweaked week after week",
-    text: "We spent six months observing, experimenting and fine-tuning with new additions, little tweaks and specials.",
-    text2:
-      "Now the menu is finally standardised. We are still new to hospitality, and loving every bit of the learning.",
+    tag: "Made slowly",
+    title: "cured for four weeks",
+    text: "Every batch is poured by hand and left to cure for four weeks, so each bar turns out hard, long-lasting and mild on skin.",
+    text2: "Small batches mean every bar gets proper attention.",
   },
   {
-    tag: "Made for your moments",
-    title: "cakes, hampers & parties",
-    text: "Planning a celebration? Pre-order and we will take care of the sweet part.",
+    tag: "For every day",
+    title: "bars, gift sets & more",
+    text: "From your daily wash to a thoughtful gift, there's an Olivra bar for it.",
     points: [
       {
-        label: "Pre-order",
-        title: "Birthday cakes",
-        text: "Order ahead for birthdays and special days.",
+        label: "Daily",
+        title: "Bath bars",
+        text: "Neem, lavender, honey oat and more.",
       },
       {
         label: "Gifting",
-        title: "Hampers",
-        text: "Thoughtful hampers for festivals and friends.",
+        title: "Gift sets",
+        text: "Boxed sets for festivals and birthdays.",
       },
       {
-        label: "Pre-order",
-        title: "Party orders",
-        text: "Desserts and bites for get-togethers, big or small.",
+        label: "Bulk",
+        title: "Mini bars",
+        text: "Guest-size soaps for hotels and events.",
       },
     ],
   },
   {
-    tag: "Visit us",
-    title: "come by this evening",
-    text: "Home delivery is available if you would rather stay in.",
+    tag: "Try one today",
+    title: "your skin will thank you",
+    text: "Free shipping above ₹499. Cash on delivery available.",
     stats: [
-      { label: "we open", value: 4, suffix: "pm" },
-      { label: "we close", value: 10, suffix: "pm" },
+      { label: "handmade scents", value: 12, suffix: "+" },
+      { label: "weeks of curing", value: 4 },
     ],
   },
 ];
